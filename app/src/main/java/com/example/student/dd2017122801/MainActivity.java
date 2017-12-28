@@ -1,5 +1,6 @@
 package com.example.student.dd2017122801;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,5 +18,11 @@ public class MainActivity extends AppCompatActivity {
     {
         TextView tv = findViewById(R.id.textView);
         tv.setText("Good Morning");
+    }
+
+    public void click2(View v)
+    {
+        Intent it =new Intent(MainActivity.this, SecActivity.class);
+        startActivity(it);
     }
 }
