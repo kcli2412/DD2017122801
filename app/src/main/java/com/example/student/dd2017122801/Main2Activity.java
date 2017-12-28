@@ -25,7 +25,7 @@ public class Main2Activity extends AppCompatActivity {
     public void clickOkay(View v)
     {
         Intent it = new Intent();
-        it.putExtra("myresult",b1.getText().toString());
+        it.putExtra("myresult", b1.getText().toString());
         setResult(RESULT_OK, it);
         finish();
     }
