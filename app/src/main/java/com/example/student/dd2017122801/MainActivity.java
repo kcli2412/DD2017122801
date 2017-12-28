@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     public void click2(View v)
     {
         Intent it =new Intent(MainActivity.this, SecActivity.class);
+        EditText et = findViewById(R.id.editText);
+        it.putExtra("data", et.getText().toString());
         startActivity(it);
     }
 }
