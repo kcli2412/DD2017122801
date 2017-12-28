@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     TextView tv;
+    EditText et;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv = findViewById(R.id.textView);
+        et = findViewById(R.id.editText);
     }
 
     public void click1(View v)
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     public void click2(View v)
     {
         Intent it =new Intent(MainActivity.this, SecActivity.class);
-        EditText et = findViewById(R.id.editText);
         it.putExtra("data", et.getText().toString());
         startActivity(it);
     }
@@ -35,12 +36,17 @@ public class MainActivity extends AppCompatActivity {
     public void click3(View v)
     {
         Intent it=new Intent(MainActivity.this, Main2Activity.class);
+        it.putExtra("data", et.getText().toString());
         startActivityForResult(it,123);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        tv.setText(data.getStringExtra("myresult"));
+
+        if(resultCode == RESULT_OK)
+        {
+            tv.setText(data.getStringExtra("myresult"));
+        }
     }
 }
